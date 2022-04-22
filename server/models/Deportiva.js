@@ -1,3 +1,9 @@
+/**
+ * Javier Ribal del Río
+ * 
+ * javierribal@gmail.com
+ *  
+ */
 const { Schema, model } = require('mongoose'); //Importa la libreria de Mongo
 
 //Creación del esquema
@@ -9,8 +15,8 @@ var deportivasEsquema = new Schema({
     modelo: { type: String },                               //Nike 2000
     observaciones: { type: String },                        //Son una edición limitada
     talla: { type: Number },                                //41
-    fechaDeJubilación: { type: Date }
+    fechaDeJubilacion: { type: Date }
 });
 
 //Exporta el modelo del esquema
-module.exports = model('Esquema', deportivasEsquema);
+module.exports = model('Deportiva', deportivasEsquema);
