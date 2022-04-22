@@ -21,5 +21,5 @@ app.use(index);                                     //La activo
 
 app.listen(PORT, () => {
 
-    console.log('Hola, este es el puerto ' + PORT)
+    console.log('Hola, este es el puerto ' + PORT);
 });
