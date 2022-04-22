@@ -1,4 +1,4 @@
-const { Schema } = require('mongoose'); //Importa la libreria de Mongo
+const { Schema, model } = require('mongoose'); //Importa la libreria de Mongo
 
 //Creación del esquema
 
@@ -11,3 +11,6 @@ var deportivasEsquema = new Schema({
     talla: { type: Number },                                //41
     fechaDeJubilación: { type: Date }
 });
+
+//Exporta el modelo del esquema
+module.exports = model('Esquema', deportivasEsquema);
