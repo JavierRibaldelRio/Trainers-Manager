@@ -6,13 +6,13 @@
 
 import React from 'react';
 
-function Main() {
+function Home() {
     return (
         <div>
-            <h1>Hola Soy la / aunque realmente me llamo main</h1>
+            <h1>Hola Soy la / aunque realmente me llamo página <strong>Home</strong></h1>
         </div>
     );
 }
 
 
-export default Main;
+export default Home;

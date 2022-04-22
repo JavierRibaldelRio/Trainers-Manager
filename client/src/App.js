@@ -1,12 +1,18 @@
 import './App.css';
-import { Route, Routes } from 'react-router-dom';     //Importa react router
-import Main from './Main';
+import Home from './Home';
+import { Route, Routes } from 'react-router-dom';
+import About from './about';
 
 function App() {
   return (
     <div className="App">
-      <Routes>
-        <Route path="/api" element={<Main />} />
+
+
+      sdfjaksdjf
+      <Routes >
+        <Route path="/" element={<Home />} />
+
+        <Route path="about" element={<About />} />
 
       </Routes>
     </div>
