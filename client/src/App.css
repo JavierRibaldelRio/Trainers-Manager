@@ -28,10 +28,17 @@
   color: #61dafb;
 }
 
+#Input-Talla {
+
+  width: 3em;
+
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

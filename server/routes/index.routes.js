@@ -12,6 +12,6 @@ const controller = require('../controllers/index.controllers');     //Importa lo
 
 router.get('/', controller.index);
 
-router.get('/api', controller.api);
+router.get('/add', controller.add);
 
 module.exports = router;    //Exporta el router
