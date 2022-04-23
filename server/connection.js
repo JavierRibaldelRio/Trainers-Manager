@@ -9,17 +9,19 @@ const mongoose = require('mongoose');       //Importa Mongoose
 
 require('dotenv').config();                 //Activa dotenv
 
-const URI = process.env.URI_MONGO;          //Importa el uri
+const URI = process.env.URI_MONGO;          //Importa el URI
 
 //Crea la conexión a Mongoose
 mongoose.connect(URI);
 
-var db = mongoose.connection;
+var db = mongoose.connection;               //Crea la conexión de la db  
 
+//En caso de error lo muestra
 db.on('error', (err) => {
-    console.log('connection error', err)
-})
+    console.error('connection error', err);
+});
 
+//Si la conexión es correcta se muestra mensaje
 db.once('open', () => {
-    console.log('Conexión a mongo correcta')
-})
+    console.info('Conexión a mongo correcta');
+});

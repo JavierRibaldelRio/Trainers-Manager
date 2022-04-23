@@ -6,14 +6,15 @@
  */
 const { Schema, model } = require('mongoose'); //Importa la libreria de Mongo
 
+//Crea el esquema de las deportivas
+
 var deportivasEsquema = new Schema({
 
-    id: { type: Number, required: true, uniqued: true },    //Id Ejemplo 1
-    marca: String,                                //Nike
-    modelo: String,                               //Nike 2000
-    observaciones: String,                       //Son una edición limitada
-    talla: Number,                               //41
-    fechaDeJubilacion: Date
+    marca: String,              //Nike
+    modelo: String,             //Nike 2000
+    observaciones: String,      //Son una edición limitada
+    talla: Number,              //41
+    fechaDeJubilacion: Date     //2006-5-21
 })
 
 
