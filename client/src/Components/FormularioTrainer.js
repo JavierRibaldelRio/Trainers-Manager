@@ -12,11 +12,11 @@ class FormularioTrainer extends Component {
         super(props);
         this.state = {
 
-            marca: '',
-            modelo: '',
-            talla: '',
+            marca: undefined,
+            modelo: undefined,
+            talla: undefined,
             fechaDeJubilacion: undefined,
-            observaciones: ''
+            observaciones: undefined,
         };
 
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -50,11 +50,11 @@ class FormularioTrainer extends Component {
     //Al reiniciar pone todos los estados en configuración inicial
     handleReset() {
         this.setState({
-            marca: '',
-            modelo: '',
-            talla: '',
+            marca: undefined,
+            modelo: undefined,
+            talla: undefined,
             fechaDeJubilacion: undefined,
-            observaciones: ''
+            observaciones: undefined
         });
     }
 
