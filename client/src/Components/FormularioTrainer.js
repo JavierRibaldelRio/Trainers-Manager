@@ -103,12 +103,15 @@ class FormularioTrainer extends Component {
                 <br />
                 <br />
 
-                <label>Observaciones: </label>
-                <br />
-                <textarea id='Input-Observaciones' onChange={this.handleObservaciones} />
+                <div hidden={this.props.ocultarObservaciones}>
+                    <label>Observaciones: </label>
+                    <br />
+                    <textarea id='Input-Observaciones' onChange={this.handleObservaciones} />
 
-                <br />
-                <br />
+                    <br />
+                    <br />
+
+                </div>
 
                 <div className='Botones-Control-Formulario'>
 
@@ -125,12 +128,15 @@ class FormularioTrainer extends Component {
 //En caso de que no hayan propiedades especificadas
 FormularioTrainer.defaultProps = {
 
-    textoBoton: 'Validar'
+    textoBoton: 'Validar',
+    ocultarObservaciones: false
+
 };
 
 //Especifica que el texto boton tiene que ser un string
 FormularioTrainer.propTypes = {
-    textoBoton: PropTypes.string
+    textoBoton: PropTypes.string,
+    observaciones: PropTypes.bool
 }
 
 export default FormularioTrainer;
