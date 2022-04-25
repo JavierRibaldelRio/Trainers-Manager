@@ -1,7 +1,8 @@
 import './App.css';
-import Home from './Home';
+import Home from './Components/Home';
 import { Route, Routes } from 'react-router-dom';
-import About from './about';
+import About from './Components/about';
+import AnyadirTrainer from './Components/Anyadir';
 
 function App() {
   return (
@@ -10,7 +11,7 @@ function App() {
 
       sdfjaksdjf
       <Routes >
-        <Route path="/" element={<Home />} />
+        <Route path="/anyadir-trainer" element={<AnyadirTrainer />} />
 
         <Route path="about" element={<About />} />
 
