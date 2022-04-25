@@ -11,6 +11,19 @@ require('../connection');         //Activa las conexiones
 //Almacenará todas las funciones del controlador
 const controller = {};
 
+
+//Middlw ware function
+
+controller.cabeceras = (req, res, next) => {
+    //Incluye las cabeceras necesarias del servidor
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Credentials', true);
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+    next();
+}
+
 //Función de /
 controller.index = (req, res) => {
 
@@ -20,24 +33,34 @@ controller.index = (req, res) => {
 //Función de /add
 controller.add = (req, res) => {
 
-    var newDeportiva = new Deportiva({
-        marca: 'Canon',
-        modelo: 'Reflex',
-        observaciones: 'Esto es caro',
-        talla: 44,
-        fechaDeJubilacion: new Date(2006, 5, 11)
+    //Almacena la trainer subida
 
-    });
+    const tra = req.body;
 
+    console.log(tra);
 
-    newDeportiva.save((err) => {
+    const zapatoASubir = new Deportiva(tra);
+
+    zapatoASubir.save((err) => {
         if (err) {
-            res.type('html').status(500);
-            res.send('Error: ' + err);
+            res.status(500);
+
+            //Almacena el mensaje de error del Mongodb
+            const mensajeErr = 'Se ha producido un error en el servidor:  ' + err + "."
+            console.error(mensajeErr);
+
+            res.json({ message: mensajeErr });
         }
         else {
-            res.send('Hola, he funciionado');
-        }
+            res.status(200);
+
+            console.info('Se ha escrito correctamente en la bade de datos.');
+
+            var mensaje = 'Se ha registrado correctamente la zapatilla';
+
+            res.json(mensaje);
+
+        };
     });
 }
 

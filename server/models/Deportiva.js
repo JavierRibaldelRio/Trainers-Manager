@@ -12,9 +12,10 @@ var deportivasEsquema = new Schema({
 
     marca: String,              //Nike
     modelo: String,             //Nike 2000
-    observaciones: String,      //Son una edición limitada
     talla: Number,              //41
-    fechaDeJubilacion: Date     //2006-5-21
+    fechaDeJubilacion: Date,    //2006-5-21
+    observaciones: String       //Son una edición limitada
+
 })
 
 
