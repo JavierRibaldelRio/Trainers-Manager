@@ -1,8 +1,7 @@
 import './App.css';
-import Home from './Components/Home';
 import { Route, Routes } from 'react-router-dom';
-import About from './Components/about';
 import AnyadirTrainer from './Components/Anyadir';
+import Buscar from './Components/Buscar';
 
 function App() {
   return (
@@ -13,7 +12,7 @@ function App() {
       <Routes >
         <Route path="/anyadir-trainer" element={<AnyadirTrainer />} />
 
-        <Route path="about" element={<About />} />
+        <Route path="/buscar" element={<Buscar />} />
 
       </Routes>
     </div>
