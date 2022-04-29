@@ -22,4 +22,6 @@ router.get('/', controller.index);
 
 router.post('/add', controller.add);
 
+router.post('/search', controller.search)
+
 module.exports = router;    //Exporta el router

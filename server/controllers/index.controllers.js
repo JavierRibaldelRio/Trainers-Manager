@@ -68,5 +68,24 @@ controller.add = (req, res) => {
     });
 }
 
+//Función de /search
+controller.search = (res, req) => {
+
+    var query = {};
+
+    if (req.body.marca) {
+        query.marca = req.body.marca;
+    }
+    if (req.body.modelo) {
+        query.modelo = req.body.modelo;
+    }
+    if (req.body.talla) {
+        query.talla = req.body.talla;
+    }
+    if (req.body.) {
+        query. = req.body. ;
+    }
+}
+
 //Exporta el controlador
 module.exports = controller;
