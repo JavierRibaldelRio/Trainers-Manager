@@ -37,7 +37,11 @@ controller.add = (req, res) => {
 
     const tra = req.body;
 
-    console.log(tra);
+    //Almacena la fecha
+    const fecha = Date();
+
+    tra.fechaCreacion = fecha;  //La fecha de creación la hace igual a la fecha de hoy
+    tra.ultimoCambio = fecha;
 
     const zapatoASubir = new Deportiva(tra);
 

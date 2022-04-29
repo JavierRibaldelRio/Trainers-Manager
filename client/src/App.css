@@ -34,6 +34,10 @@
 
 }
 
+#Input-Fecha-De-Jubilacion {
+  width: 4em;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);

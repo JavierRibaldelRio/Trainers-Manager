@@ -99,7 +99,7 @@ class FormularioTrainer extends Component {
                 <br />
 
                 <label>Año De Jubilación: </label>
-                <input id='Input-Fecha-De-Jubilacion' name='Input-Feacha-de-Jubilacion' type='date' onChange={this.handleFechaDeJubilacion} />
+                <input id='Input-Fecha-De-Jubilacion' name='Input-Feacha-de-Jubilacion' type='number' onChange={this.handleFechaDeJubilacion} />
                 <br />
                 <br />
 
