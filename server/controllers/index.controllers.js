@@ -4,7 +4,13 @@
  * javierribal@gmail.com
  */
 
+
+
+
+const { query } = require('express');
 const Deportiva = require('../models/Deportiva');       //Importa el esquema de la deportiva
+const errorServidor = require('../scripts/Error');
+const { MARCA, MODELO, TALLA, FECHADEJUBILACION } = require('../scripts/keywords');
 
 require('../connection');         //Activa las conexiones
 
@@ -44,18 +50,14 @@ controller.add = (req, res) => {
     tra.ultimoCambio = fecha;
 
     const zapatoASubir = new Deportiva(tra);
-
     zapatoASubir.save((err) => {
         if (err) {
-            res.status(500);
 
-            //Almacena el mensaje de error del Mongodb
-            const mensajeErr = 'Se ha producido un error en el servidor:  ' + err + "."
-            console.error(mensajeErr);
-
-            res.json({ message: mensajeErr });
+            errorServidor(err, res);
         }
         else {
+
+
             res.status(200);
 
             console.info('Se ha escrito correctamente en la bade de datos.');
@@ -69,22 +71,57 @@ controller.add = (req, res) => {
 }
 
 //Función de /search
-controller.search = (res, req) => {
+controller.search = (req, res) => {
 
-    var query = {};
+    const busqueda = crearQuery(req.body);      //Crea la busqueda
 
-    if (req.body.marca) {
-        query.marca = req.body.marca;
+    buscar(busqueda);       //Busca con busqueda
+
+
+    //Funciones
+
+    //Función que crea la query y la devuelve
+    function crearQuery(body) {
+
+        //Almacena la query
+        var query = {};
+
+        //Se le introduce una propiedad y en caso de que exista la añade a la query con su valor
+        var anyadirAQuery = (prop) => {
+
+            if (body[prop]) {
+                query[prop] = body[prop];
+            }
+        }
+
+        //Funcion que añade a la query en caso que exista una peopiedad
+
+        anyadirAQuery(MARCA);
+        anyadirAQuery(MODELO);
+        anyadirAQuery(TALLA);
+        anyadirAQuery(FECHADEJUBILACION);
+
+        return query;   //Devulve la query
     }
-    if (req.body.modelo) {
-        query.modelo = req.body.modelo;
+
+    //Busca por zapatillas segun la query
+    function buscar(query = {}) {
+        Deportiva.find(query, (err, deportivas) => {
+
+            if (err) {
+
+                errorServidor(err, res);
+            } else {
+
+                res.status(200);
+
+                res.json(deportivas);
+
+            }
+
+        });
     }
-    if (req.body.talla) {
-        query.talla = req.body.talla;
-    }
-    if (req.body.) {
-        query. = req.body. ;
-    }
+
 }
 
 //Exporta el controlador
