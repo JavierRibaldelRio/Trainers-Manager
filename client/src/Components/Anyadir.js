@@ -22,13 +22,14 @@ class AnyadirTrainer extends Component {
 
         fetch('http://127.0.0.1:3001/add', 						//La url del sevidor
             {
-                method: 'POST', // or 'PUT'
-                body: JSON.stringify(trainer), // data can be `string` or {object}!
+                method: 'POST',
+                body: JSON.stringify(trainer),
                 headers: {
                     'Content-Type': 'application/json'
                 }
             }).then(response => response.json())
             .then(respuesta => this.setState({ respuesta: respuesta }));
+
 
 
     }
