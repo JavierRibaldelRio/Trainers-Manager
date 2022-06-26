@@ -14,7 +14,7 @@ class Busqueda extends Component {
         super(props);
     }
     render() {
-        return (<p>Hola ::: {JSON.stringify(this.props.location.state.name)}</p>);
+        return (<p>Hola ::: {JSON.stringify(this.props.location.state)}</p>);
     }
 }
 

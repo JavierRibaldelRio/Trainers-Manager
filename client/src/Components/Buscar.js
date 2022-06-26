@@ -31,37 +31,45 @@ class Buscar extends Component {
                     'Content-Type': 'application/json'
                 }
             }).then(response => response.json())
-            .then(respuesta => this.setState({ respuesta: respuesta }));
+            .then(respuesta => this.tratarRespuesta(respuesta));
 
 
     }
 
 
+    //Examina la respuesta del servidor y procede como coresponda
 
-    render() {
-        //Comprueba si hay algo que mostrar
-        if (this.state.respuesta !== undefined) {
-            if (this.state.respuesta.length === 0) {
+    tratarRespuesta(respuesta) {
 
-                alert("No hay ninguna deportiva que cumpla todas las características");
-            }
+        //Si no hay ninguna zapatilla, que cumpla todas las características
+        if (respuesta.length === 0) {
 
-            else {
-                // Coge el navigate desde props
-                const { navigate } = this.props;
+            alert("No hay ninguna deportiva que cumpla todas las características");
 
-                navigate('/busqueda', { state: { id: 1, name: 'sabaoon' } });
+        } else {
 
-            }
+            // Coge el navigate desde props
+            const { navigate } = this.props;
+
+
+            //Lo manda a otra página dentro de react router
+            navigate('/busqueda', { state: respuesta });
         }
 
+    }
+
+
+
+    //Devuelve un formulario para introducir la información que se va a buscar
+    render() {
         return (<FormularioTrainer textoBoton={'Buscar'} ocultarObservaciones={true} enviar={this.buscar} />);
     }
+
 }
 
 //Envolvemos el componente de clase en un componente de función para poder usar navigate
 export default function (props) {
     const navigate = useNavigate();
 
-    return <Buscar {...props} navigate={navigate} />;
+    return (<Buscar {...props} navigate={navigate} />);
 }
