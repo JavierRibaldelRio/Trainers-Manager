@@ -18,7 +18,7 @@ function App() {
 
         <Route path='/busqueda' element={<Busqueda />} />
 
-        <Routes path='/todos' element={<MostrarZapatos />} />
+        <Route path='/todos' element={<MostrarZapatos />} />
 
       </Routes>
     </div>
