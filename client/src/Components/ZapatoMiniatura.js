@@ -7,11 +7,24 @@ class Miniatura extends Component {
         super(props);
     }
 
+    //Función que remplaza los undefindes por - 
+
+    remplazarUndefineds(propiedad) {
+
+        return (propiedad === undefined) ? '-' : propiedad;
+
+    }
+
     render() {
 
 
         //Coge estas propiedades de zapato
-        const { marca, talla, modelo } = this.props.zapato;
+        var { marca, talla, modelo } = this.props.zapato;
+
+        //Cambia undefineds por guión
+        marca = this.remplazarUndefineds(marca);
+        talla = this.remplazarUndefineds(talla);
+        modelo = this.remplazarUndefineds(modelo)
 
         return (
 
