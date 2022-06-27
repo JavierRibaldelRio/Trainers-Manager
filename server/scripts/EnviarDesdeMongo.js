@@ -4,7 +4,7 @@
  * 
 */
 const Deportiva = require('../models/Deportiva');       //Importa el esquema de la deportiva
-
+const ordenar = require('../scripts/Ordenar');
 
 function enviarDeBase(res, query = {}) {
     Deportiva.find(query, (err, deportivas) => {
@@ -16,6 +16,8 @@ function enviarDeBase(res, query = {}) {
         } else {
 
             res.status(200);
+
+            ordenar(deportivas)
 
             res.json(deportivas);
         }
