@@ -5,6 +5,7 @@
  */
 
 import React, { Component } from 'react';
+import MostrarZapatos from './MostrarZapatos';
 
 import { useLocation } from 'react-router-dom';
 
@@ -14,7 +15,7 @@ class Busqueda extends Component {
         super(props);
     }
     render() {
-        return (<p>Hola ::: {JSON.stringify(this.props.location.state)}</p>);
+        return (<MostrarZapatos zapatos={this.props.location.state} />);
     }
 }
 

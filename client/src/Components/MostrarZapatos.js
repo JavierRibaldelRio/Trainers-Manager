@@ -38,12 +38,14 @@ class MostrarZapatos extends Component {
             const miniaturas = this.state.zapatos.map(x => <Miniatura key={JSON.stringify(x)} zapato={x} />)
 
 
-            return (<div>
-                {/* {JSON.stringify(this.state.zapatos)} */}
+            return (
 
-                {miniaturas}
+                <div className="Conjunto-Miniaturas">
+                    {/* {JSON.stringify(this.state.zapatos)} */}
 
-            </div>);
+                    {miniaturas}
+
+                </div>);
         }
     }
 }
