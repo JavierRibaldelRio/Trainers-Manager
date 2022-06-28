@@ -3,19 +3,22 @@ import { Route, Routes } from 'react-router-dom';
 import AnyadirTrainer from './Components/Anyadir';
 import Buscar from './Components/Buscar';
 import Busqueda from './Components/Busqueda';
+import MostrarZapatos from './Components/MostrarZapatos';
 
 function App() {
   return (
     <div className="App">
 
 
-      sdfjaksdjf
+      TRAINER MANAGER
       <Routes >
         <Route path="/anyadir-trainer" element={<AnyadirTrainer />} />
 
         <Route path="/buscar" element={<Buscar />} />
 
         <Route path='/busqueda' element={<Busqueda />} />
+
+        <Route path='/todos' element={<MostrarZapatos />} />
 
       </Routes>
     </div>

@@ -4,11 +4,9 @@
  * javierribal@gmail.com
  */
 
-
-
-
 const { query } = require('express');
 const Deportiva = require('../models/Deportiva');       //Importa el esquema de la deportiva
+const enviarDeBase = require('../scripts/EnviarDesdeMongo');
 const errorServidor = require('../scripts/Error');
 const { MARCA, MODELO, TALLA, FECHADEJUBILACION } = require('../scripts/keywords');
 
@@ -75,9 +73,6 @@ controller.search = (req, res) => {
 
     const busqueda = crearQuery(req.body);      //Crea la busqueda
 
-    buscar(busqueda);       //Busca con busqueda
-
-
     //Funciones
 
     //Función que crea la query y la devuelve
@@ -103,24 +98,16 @@ controller.search = (req, res) => {
 
         return query;   //Devulve la query
     }
+    //Envia desde la base
+    enviarDeBase(res, busqueda);
 
-    //Busca por zapatillas segun la query
-    function buscar(query = {}) {
-        Deportiva.find(query, (err, deportivas) => {
+}
 
-            if (err) {
+//Función de /all, devuelve por json todos los zapatos
 
-                errorServidor(err, res);
-            } else {
+controller.all = (req, res) => {
 
-                res.status(200);
-
-                res.json(deportivas);
-
-            }
-
-        });
-    }
+    enviarDeBase(res);
 
 }
 

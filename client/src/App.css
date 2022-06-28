@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-size: 0.875em;
 }
 
 .App-logo {
@@ -38,12 +39,41 @@
   width: 4em;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
+.Miniatura {
 
-  to {
-    transform: rotate(360deg);
-  }
+  display: flex;
+
+  flex-direction: row;
+
+  align-items: center;
+  gap: 4vmin;
+  padding: 3vmin;
+  border: 1vmin black solid;
+
+  margin: 2vmin;
+
+  width: 24%;
 }
+
+.Info-Miniatura {
+
+  border: solid;
+
+  text-align: center;
+  padding: 1vmin;
+  background-color: white;
+  border: solid 0.7vmin rgb(0, 0, 0);
+  border-collapse: collapse;
+}
+
+.Info-Miniatura th {}
+
+.Info-Miniatura td,
+.Info-Miniatura th {
+  padding: 3vmin;
+  border-bottom: black solid 0.5vmin;
+}
+
+/*1vmin = 5px*/
+
+.Conjunto-Miniaturas {}

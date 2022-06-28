@@ -15,4 +15,4 @@ function errorServidor(err, res) {
     res.json(mensajeErr);
 }
 
-module.exports = errorServidor
+module.exports = errorServidor;
